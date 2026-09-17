@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход · Obeya EMY</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+  <div class="bg-gray-800 p-8 rounded-xl shadow-lg w-96 border border-gray-700">
+    <h1 class="text-2xl font-bold mb-2 text-emerald-400">Obeya · EMY</h1>
+    <p class="text-gray-400 text-sm mb-6">Влез с твоя служебен имейл и парола.</p>
+
+    {% if error %}
+      <div class="bg-red-500/20 border border-red-500 text-red-300 p-3 rounded mb-4 text-sm">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <form method="POST" action="/login" class="space-y-4">
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Имейл адрес</label>
+        <input type="email" name="email" required placeholder="kinetrix.support@gmail.com" 
+             class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white focus:outline-none focus:border-emerald-500">
+      </div>
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">Парола</label>
+        <input type="password" name="password" required placeholder="••••••" 
+             class="w-full bg-gray-900 border border-gray-700 rounded p-2 text-white focus:outline-none focus:border-emerald-500">
+      </div>
+      <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-medium py-2 rounded transition">
+        Влез в системата
+      </button>
+    </form>
+  </div>
+</body>
+</html>

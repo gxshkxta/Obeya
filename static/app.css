@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root { font-family: 'DM Sans', sans-serif; }
+h1, h2, h3, .display-font { font-family: 'Space Grotesk', sans-serif; }
+body { background: #f6f7f4; color: #17211b; }
+.glass { background: rgba(255, 255, 255, .78); backdrop-filter: blur(14px); }
+.status-select { appearance: none; cursor: pointer; }
+.task-card { transition: transform .18s ease, box-shadow .18s ease; }
+.task-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(23, 33, 27, .09); }
+.reveal { animation: reveal .45s ease both; }
+@keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
