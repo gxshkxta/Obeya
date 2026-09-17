@@ -15,11 +15,20 @@ APP_PASSWORD = os.getenv("APP_PASSWORD", "3mYbs")
 def index():
     if not session.get("logged_in"):
         return redirect(url_for("login"))
-    # Подаваме правилните речници/структури, които HTML шаблонът очаква
+    # Дефинираме правилно речника със статуси и броячите, за да спре грешката
+    statuses = {
+        "todo": {"emoji": "📋", "label": "За изпълнение"},
+        "in_progress": {"emoji": "⚡", "label": "В процес"},
+        "done": {"emoji": "✅", "label": "Готови"},
+        "blocked": {"emoji": "⏸️", "label": "Спрени"}
+    }
+    counts = {"todo": 0, "in_progress": 0, "done": 0, "blocked": 0}
+
     return render_template(
         "board.html",
         user_email=session.get("user_email"),
-        statuses={"todo": "За изпълнение", "in_progress": "В процес", "done": "Готови"},
+        statuses=statuses,
+        counts=counts,
         tasks=[],
         decisions=[],
         ideas=[],
